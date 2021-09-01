@@ -11,6 +11,30 @@
         <Producto>
             Producto2
         </Producto>
+        <Producto>
+            Producto3
+        </Producto>
+        <Producto>
+            Producto4
+        </Producto>
+        <Producto>
+            Producto5
+        </Producto>
+        <Producto>
+            Producto6
+        </Producto>
+        <Producto>
+            Producto7
+        </Producto>
+        <Producto>
+            Producto8
+        </Producto>
+        <Producto>
+            Producto9
+        </Producto>
+        <Producto>
+            Producto10
+        </Producto>
         <!--Pueden venir muchos productos-->
     </ListadoProductos>
 </Simulacion>
