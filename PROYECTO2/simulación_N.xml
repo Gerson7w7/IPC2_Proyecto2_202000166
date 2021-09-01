@@ -1,0 +1,16 @@
+<!--Preguntar si siempre se va a llamar así este archivo-->
+
+<Simulacion>
+    <Nombre>
+        Nombre1
+    </Nombre>
+    <ListadoProductos>
+        <Producto>
+            SmartWatch
+        </Producto>
+        <Producto>
+            Producto2
+        </Producto>
+        <!--Pueden venir muchos productos-->
+    </ListadoProductos>
+</Simulacion>
