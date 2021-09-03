@@ -13,7 +13,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));</string>
+  </property>
+  <widget class="QPushButton" name="botonAceptar">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -21,6 +24,9 @@
      <width>75</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(218, 247, 166);</string>
    </property>
    <property name="text">
     <string>Aceptar</string>
@@ -36,7 +42,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+    <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>DATOS DEL ESTUDIANTE</string>
@@ -51,8 +58,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
-    <string>Gerso Rubén Quiroa del Cid </string>
+    <string>Gerson Rubén Quiroa del Cid </string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -63,6 +73,9 @@
      <width>91</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>202000166</string>
@@ -77,6 +90,9 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
     <string>Introducción a la programación y computación 2 sección A</string>
    </property>
@@ -90,6 +106,9 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
     <string>Ingeniería en Ciencias y Sistemas</string>
    </property>
@@ -102,6 +121,9 @@
      <width>191</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>Cuarto semestre</string>
@@ -117,7 +139,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 0);font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
    </property>
    <property name="text">
     <string>ACERCA DE LA APLICACIÓN</string>
@@ -132,6 +154,9 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
     <string>Aplicación creada por Gerson Quiroa para la empresa Digital Intelligence, S. A.</string>
    </property>
@@ -144,6 +169,9 @@
      <width>371</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>simula el trabajo que realiza una máquina desarrollada por dicha empresa en,</string>
@@ -158,6 +186,9 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
     <string>donde con una interfaz intuitiva y amigable se puede simular como la máquina</string>
    </property>
@@ -170,6 +201,9 @@
      <width>371</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>ensambla diferentes productos con diferentes componentes.</string>
