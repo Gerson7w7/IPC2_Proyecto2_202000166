@@ -117,14 +117,13 @@
         </LineaProduccion>
         <!--Pueden ir muchas líneas-->
     </ListadoLineasProduccion>
-    <ListadoPorductos>
+    <ListadoProductos>
         <Producto>
             <nombre>
                 SmartWatch
             </nombre>
             <elaboracion>
-                <!--Preguntar si va a venir en corchetes-->
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4 <!--lista de pasos-->
             </elaboracion>
         </Producto>
         <Producto>
@@ -132,7 +131,7 @@
                 Producto2
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -140,7 +139,7 @@
                 Producto3
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -148,7 +147,7 @@
                 Producto4
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -156,7 +155,7 @@
                 Producto5
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -164,7 +163,7 @@
                 Producto6
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -172,7 +171,7 @@
                 Producto7
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -180,7 +179,7 @@
                 Producto8
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -188,7 +187,7 @@
                 Producto9
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <Producto>
@@ -196,9 +195,9 @@
                 Producto10
             </nombre>
             <elaboracion>
-                [L1C2 L2C1 L2C2 L1C4]
+                L1C2 L2C1 L2C2 L1C4
             </elaboracion>
         </Producto>
         <!--Pueden ir muchos productos-->
-    </ListadoPorductos>
+    </ListadoProductos>
 </Maquina>

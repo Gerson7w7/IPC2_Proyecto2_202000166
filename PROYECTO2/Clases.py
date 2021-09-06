@@ -22,3 +22,12 @@ class Elaboracion(object):
     def __init__(self, l, c):
         self.l = l
         self.c = c
+    
+    def __str__(self):
+        return self.l + "-" + self.c
+
+
+class Simulacion(object):
+    def __init__(self):
+        self.nombre = None
+        self.lProductos = None # solo nombres de los productos

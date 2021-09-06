@@ -3,6 +3,7 @@ import sys
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QDialog, QWidget
 from archivosXML import analizarConfig, analizarSimulacion
+from archivosXML import maquina, simulacion
 
 # menú principal
 class GUI(QMainWindow):
@@ -18,6 +19,13 @@ class GUI(QMainWindow):
         self.botonCargar.clicked.connect(self.cargarWin.show)
         self.botonRep.clicked.connect(self.repWin.show)
         self.botonAyuda.clicked.connect(self.ayudaWin.show)
+        self.botonActualizar.clicked.connect(self.actualizar)
+
+    def actualizar(self):
+        #actualizando el comboBox
+        if maquina.lProductos != None:
+            for p in maquina.lProductos.iterate():
+                self.cBoxProducto.addItem(p.nombre)
 
 
 # ventana para cargar los archivos xml

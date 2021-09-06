@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>655</width>
-    <height>477</height>
+    <width>491</width>
+    <height>351</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -68,8 +68,8 @@
    <widget class="QPushButton" name="botonSalir">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>450</y>
+      <x>400</x>
+      <y>310</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -79,6 +79,61 @@
     </property>
     <property name="text">
      <string>Salir</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cBoxProducto">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(215, 255, 37);</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>361</width>
+      <height>251</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonEnsamblar">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>40</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 172, 6);</string>
+    </property>
+    <property name="text">
+     <string>Ensamblar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonActualizar">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>270</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 172, 6);</string>
+    </property>
+    <property name="text">
+     <string>Actualizar</string>
     </property>
    </widget>
   </widget>
