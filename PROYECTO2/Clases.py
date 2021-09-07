@@ -1,3 +1,5 @@
+from EstructuraDatos import Cola, LinkedList
+
 class Maquina(object):
     def __init__(self):
         self.cLineas = None
@@ -10,12 +12,16 @@ class LineaProduccion(object):
         self.numero = numero
         self.cComponentes = cComponentes
         self.tEnsamblaje = tEnsamblaje
+        self.usado = False
+        self.componentesU = Cola()
+        self.contador = 0
 
 
 class Producto(object):
     def __init__(self, nombre, elaboracion):
         self.nombre = nombre
         self.elaboracion = elaboracion
+        self.tiempos = LinkedList()
 
 
 class Elaboracion(object):
@@ -24,10 +30,17 @@ class Elaboracion(object):
         self.c = c
     
     def __str__(self):
-        return self.l + "-" + self.c
+        return str(self.l) + "-" + str(self.c)
 
 
 class Simulacion(object):
     def __init__(self):
         self.nombre = None
         self.lProductos = None # solo nombres de los productos
+
+
+class Tiempo(object):
+    def __init__(self, segundo, lEnsamblaje, descripcion):
+        self.segundo = segundo
+        self.lEnsamblaje = lEnsamblaje
+        self.descripcion = descripcion

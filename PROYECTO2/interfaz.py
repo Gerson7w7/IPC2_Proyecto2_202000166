@@ -12,7 +12,7 @@ class GUI(QMainWindow):
         self.cargarWin = CargarWin()
         self.repWin = RepWin()
         self.ayudaWin = AyudaWin()
-        uic.loadUi("GUI/mainWin.ui", self)
+        uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\mainWin.ui", self)
 
         # botones clickeados y por parámetro las funciones que desencadenan
         self.botonSalir.clicked.connect(exit)
@@ -34,7 +34,7 @@ class CargarWin(QWidget):
         super().__init__()
         self.cConfig = None
         self.cSimulacion = None
-        uic.loadUi("GUI/cargaWin.ui", self)
+        uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\cargaWin.ui", self)
 
         # labels
         self.label.setHidden(True)
@@ -67,7 +67,7 @@ class CargarWin(QWidget):
 class RepWin(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi("GUI/repWin.ui", self)
+        uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\repWin.ui", self)
 
         # labels
         self.label_2.setHidden(True)
@@ -81,7 +81,7 @@ class RepWin(QWidget):
 class AyudaWin(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi("GUI/ayudaWin.ui", self)
+        uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\ayudaWin.ui", self)
         # botones clickeados y por parámetro las funciones que desencadenan
         self.botonAceptar.clicked.connect(self.close)
 
@@ -89,7 +89,7 @@ class AyudaWin(QWidget):
 class ErrorDialog(QDialog):
     def __init__(self):
         super().__init__()
-        uic.loadUi("GUI/errorDialog.ui", self)
+        uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\errorDialog.ui", self)
         # botones clickeados y por parámetro las funciones que desencadenan
         self.botonAceptar.clicked.connect(self.close)
 

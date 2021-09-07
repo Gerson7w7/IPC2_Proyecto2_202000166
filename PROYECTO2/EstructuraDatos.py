@@ -41,6 +41,21 @@ class LinkedList(object):
                 return terreno
         return "El terreno no existe."
 
+
+    # función para obtener la cabeza de la cola
+    def getCabeza(self):
+        return self.cola.dato
+        
+
+    # función para eliminar al primer dato (la cabeza de la cola)    
+    def pop(self):
+        if not self.cabeza:
+            return False
+        else:
+            actual = self.cabeza
+            self.cabeza = self.cabeza.siguiente
+            return True
+
     # función buscar por índice
     def __getitem__(self, indice): 
         # si está entre 0 y el tamaño de la lista
@@ -104,7 +119,10 @@ class Cola(object): # clase cola
     
     # función para obtener la cabeza de la cola
     def getCabeza(self):
-        print(self.cabeza.dato)
+        if not self.cabeza:
+            return None
+        else:
+            return self.cabeza.dato
     
     # función para obtener la cola de la fila
     def getCola(self):
@@ -128,3 +146,11 @@ class Cola(object): # clase cola
             actual = actual.siguiente
         lista = "%s" % (lista)
         print(lista)
+
+
+    def iterate(self):
+        actual = self.cabeza
+        while(actual):
+            dato = actual.dato
+            actual = actual.siguiente
+            yield dato
