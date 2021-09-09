@@ -22,6 +22,7 @@ class Producto(object):
         self.nombre = nombre
         self.elaboracion = elaboracion
         self.tiempos = LinkedList()
+        self.tiempoT = 0
 
 
 class Elaboracion(object):

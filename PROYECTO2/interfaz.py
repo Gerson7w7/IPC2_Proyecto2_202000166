@@ -1,9 +1,10 @@
 #from os import close
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QDialog, QWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QDialog, QTableWidgetItem, QWidget
 from archivosXML import analizarConfig, analizarSimulacion
-from archivosXML import maquina, simulacion
+from archivosXML import maquina, ensambladoP
+
 
 # menú principal
 class GUI(QMainWindow):
@@ -20,12 +21,48 @@ class GUI(QMainWindow):
         self.botonRep.clicked.connect(self.repWin.show)
         self.botonAyuda.clicked.connect(self.ayudaWin.show)
         self.botonActualizar.clicked.connect(self.actualizar)
+        self.botonEnsamblar.clicked.connect(self.ensamblar)
 
     def actualizar(self):
         #actualizando el comboBox
         if maquina.lProductos != None:
             for p in maquina.lProductos.iterate():
                 self.cBoxProducto.addItem(p.nombre)
+
+    def ensamblar(self):
+        self.tableWidget.clear()
+        producto = self.cBoxProducto.currentText()
+        producto = ensambladoP(producto)
+        # creando la tabla...
+
+        nLinea = 0
+        nSegundo = 0
+        for tiempo in producto.tiempos.iterate():
+            if nLinea < tiempo.lEnsamblaje:
+                nLinea = tiempo.lEnsamblaje
+            if nSegundo < tiempo.segundo:
+                nSegundo = tiempo.segundo
+        # columnas de la tabla
+        self.tableWidget.setColumnCount(1 + nLinea)
+        # filas de la tabla
+        self.tableWidget.setRowCount(nSegundo)
+        # ingresando los datos de la tabla...
+        # encabezado de tiempo
+        self.tableWidget.setHorizontalHeaderItem(0, QTableWidgetItem("Tiempo"))
+        # encabezado de cada linea
+        for linea in range(nLinea):
+            self.tableWidget.setHorizontalHeaderItem(linea + 1, QTableWidgetItem("Linea " + str(linea + 1)))
+        # primero inicializamos todas las celdas
+        for i in range(nSegundo):
+            for j in range(nLinea):
+                self.tableWidget.setItem(i, j, QTableWidgetItem("Linea apagada"))
+        # tiempo en segundos
+        for s in range(nSegundo):
+            self.tableWidget.setItem(s, 0, QTableWidgetItem(str(s + 1)))
+        # descripcion de las lineas
+        for tiempo in producto.tiempos.iterate():
+            self.tableWidget.setItem(tiempo.segundo - 1, tiempo.lEnsamblaje, QTableWidgetItem(tiempo.descripcion))
+        self.tableWidget.show()
 
 
 # ventana para cargar los archivos xml
