@@ -24,14 +24,17 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.227
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>50</x>
      <y>20</y>
      <width>351</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
-    <string>No se ha analizado ningún archivo, intente analizar el archivo primero</string>
+    <string>No se ha analizado ningún archivo, intente luego</string>
    </property>
   </widget>
   <widget class="QPushButton" name="botonAceptar">

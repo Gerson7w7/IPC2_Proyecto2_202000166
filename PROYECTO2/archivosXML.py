@@ -107,10 +107,21 @@ def ejecSimulacion():
                 crearArchivoSimulacion(False, "", 0)
                 break
 
-def ensambladoP(productoN):
+# productos ensamblados individualmente
+productoIndividual = LinkedList()
+def ensambladoP(productoN, numEnsamblado):
     for producto in maquina.lProductos.iterate():
         if productoN == producto.nombre:
-            elaboracion(producto)
+            repetido = False
+            if len(productoIndividual) != 0:
+                for p in productoIndividual.iterate():
+                    if producto.nombre == p.nombre:
+                        repetido = True
+            if not repetido:
+                productoIndividual.append(producto)
+            if producto.tiempoT == 0:
+                elaboracion(producto)
+            crearArchivoSimulacion(True, producto, numEnsamblado)
             return producto
 
 
@@ -213,54 +224,88 @@ def crearArchivoSimulacion(individual, productoI, numEmulacion):
     # nodo Listado de productos
     lp = xmlDoc.createElement("ListadoProductos")
 
-    # if individual:
-        
-    # else:
-    # por cada producto creamos un nodo
-    for producto in maquina.lProductos.iterate():
-        if len(producto.tiempos) != 0:
-            # nodo producto
-            p = xmlDoc.createElement("Producto")
+    if individual:
+        # nodo producto
+        p = xmlDoc.createElement("Producto")
 
-            # sub nodo nombre
-            n = xmlDoc.createElement("Nombre")
-            n.appendChild(xmlDoc.createTextNode(str(producto.nombre)))
-            p.appendChild(n)
+        # sub nodo nombre
+        n = xmlDoc.createElement("Nombre")
+        n.appendChild(xmlDoc.createTextNode(str(productoI.nombre)))
+        p.appendChild(n)
 
-            # sub nodo tiempo total
-            tt = xmlDoc.createElement("TiempoTotal")
-            tt.appendChild(xmlDoc.createTextNode(str(producto.tiempoT)))
-            p.appendChild(tt)
+        # sub nodo tiempo total
+        tt = xmlDoc.createElement("TiempoTotal")
+        tt.appendChild(xmlDoc.createTextNode(str(productoI.tiempoT)))
+        p.appendChild(tt)
 
-            # sub nodo elaboración optima
-            eo = xmlDoc.createElement("ElaboracionOptima")
-            tAux = 1
-            while(tAux <= producto.tiempoT):
-                aux = LinkedList()            
-                for tiempo in producto.tiempos.iterate():
-                    if tAux == tiempo.segundo:
-                        aux.append(tiempo)
+        # sub nodo elaboración optima
+        eo = xmlDoc.createElement("ElaboracionOptima")
+        tAux = 1
+        while(tAux <= productoI.tiempoT):
+            aux = LinkedList()            
+            for tiempo in productoI.tiempos.iterate():
+                if tAux == tiempo.segundo:
+                    aux.append(tiempo)
 
-                # sub nodo de tiempo
-                t = xmlDoc.createElement("Tiempo")
-                t.setAttribute("NoSegundo", str(tAux))
-                # sub nodo linea de ensamblaje y descripcion
-                for tiempo in aux.iterate():
-                    le = xmlDoc.createElement("LineaEnsamblaje")
-                    le.setAttribute("NoLinea", str(tiempo.lEnsamblaje))
-                    le.appendChild(xmlDoc.createTextNode(str(tiempo.descripcion)))
-                    t.appendChild(le)
-                eo.appendChild(t)
-                tAux += 1
-            p.appendChild(eo)
-            lp.appendChild(p)
+            # sub nodo de tiempo
+            t = xmlDoc.createElement("Tiempo")
+            t.setAttribute("NoSegundo", str(tAux))
+            # sub nodo linea de ensamblaje y descripcion
+            for tiempo in aux.iterate():
+                le = xmlDoc.createElement("LineaEnsamblaje")
+                le.setAttribute("NoLinea", str(tiempo.lEnsamblaje))
+                le.appendChild(xmlDoc.createTextNode(str(tiempo.descripcion)))
+                t.appendChild(le)
+            eo.appendChild(t)
+            tAux += 1
+        p.appendChild(eo)
+        lp.appendChild(p)
+    else:
+        # por cada producto creamos un nodo
+        for producto in maquina.lProductos.iterate():          
+            if len(producto.tiempos) != 0:
+                # nodo producto
+                p = xmlDoc.createElement("Producto")
+
+                # sub nodo nombre
+                n = xmlDoc.createElement("Nombre")
+                n.appendChild(xmlDoc.createTextNode(str(producto.nombre)))
+                p.appendChild(n)
+
+                # sub nodo tiempo total
+                tt = xmlDoc.createElement("TiempoTotal")
+                tt.appendChild(xmlDoc.createTextNode(str(producto.tiempoT)))
+                p.appendChild(tt)
+
+                # sub nodo elaboración optima
+                eo = xmlDoc.createElement("ElaboracionOptima")
+                tAux = 1
+                while(tAux <= producto.tiempoT):
+                    aux = LinkedList()            
+                    for tiempo in producto.tiempos.iterate():
+                        if tAux == tiempo.segundo:
+                            aux.append(tiempo)
+
+                    # sub nodo de tiempo
+                    t = xmlDoc.createElement("Tiempo")
+                    t.setAttribute("NoSegundo", str(tAux))
+                    # sub nodo linea de ensamblaje y descripcion
+                    for tiempo in aux.iterate():
+                        le = xmlDoc.createElement("LineaEnsamblaje")
+                        le.setAttribute("NoLinea", str(tiempo.lEnsamblaje))
+                        le.appendChild(xmlDoc.createTextNode(str(tiempo.descripcion)))
+                        t.appendChild(le)
+                    eo.appendChild(t)
+                    tAux += 1
+                p.appendChild(eo)
+                lp.appendChild(p)
 
     # añadimos el nodo terreno a la raíz del archivo
     docRoot.appendChild(lp)
 
     # guardando el fichero en la ruta especificada
     if individual:
-        ruta = f"Archivos de Salida/Simulacion_{numEmulacion}.xml"
+        ruta = f"Archivos de Salida/SimulacionIndividual_{numEmulacion}.xml"
     else:
         ruta = f"Archivos de Salida/Simulacion_{simulacion.nombre}.xml"
     archivo = open(ruta, 'w')

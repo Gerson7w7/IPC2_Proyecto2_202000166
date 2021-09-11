@@ -4,7 +4,8 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QDialog, QTableWidgetItem, QWidget
 from archivosXML import analizarConfig, analizarSimulacion
 from archivosXML import maquina, ensambladoP
-
+from HTML import repSimulacion, repIndividual
+from Grafica import grafica
 
 # menú principal
 class GUI(QMainWindow):
@@ -13,6 +14,7 @@ class GUI(QMainWindow):
         self.cargarWin = CargarWin()
         self.repWin = RepWin()
         self.ayudaWin = AyudaWin()
+        self.numEnsamblado = 0
         uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\mainWin.ui", self)
 
         # botones clickeados y por parámetro las funciones que desencadenan
@@ -30,9 +32,10 @@ class GUI(QMainWindow):
                 self.cBoxProducto.addItem(p.nombre)
 
     def ensamblar(self):
+        self.numEnsamblado += 1
         self.tableWidget.clear()
         producto = self.cBoxProducto.currentText()
-        producto = ensambladoP(producto)
+        producto = ensambladoP(producto, self.numEnsamblado)
         # creando la tabla...
 
         nLinea = 0
@@ -104,14 +107,53 @@ class CargarWin(QWidget):
 class RepWin(QWidget):
     def __init__(self):
         super().__init__()
+        self.errorDialgo = ErrorDialog()
+        self.htmlWin = HTMLWin()
         uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\repWin.ui", self)
 
+        # labels
+        self.label_2.setHidden(True)
+
+        # botones clickeados y por parámetro las funciones que desencadenan
+        self.botonAceptar.clicked.connect(self.close)
+        self.botonHTML.clicked.connect(self.html)
+        self.botonGraphviz.clicked.connect(self.graphviz)
+
+    def graphviz(self):
+        if maquina.lProductos == None:
+            self.errorDialgo.show()
+        else:
+            grafica()
+            self.label_2.setHidden(False)
+
+    def html(self):
+        if maquina.lProductos == None:
+            self.errorDialgo.show()
+        else:
+            self.htmlWin.show()
+
+# ventana para crear los HTML
+class HTMLWin(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\htmlWin.ui", self)
+        
         # labels
         self.label_2.setHidden(True)
         self.label_3.setHidden(True)
 
         # botones clickeados y por parámetro las funciones que desencadenan
         self.botonAceptar.clicked.connect(self.close)
+        self.botonSimulacion.clicked.connect(self.simulacion)
+        self.botonIndividual.clicked.connect(self.individual)
+
+    def simulacion(self):
+        repSimulacion()
+        self.label_2.setHidden(False)
+    
+    def individual(self):
+        repIndividual()
+        self.label_3.setHidden(False)
 
 
 # ventana de ayuda

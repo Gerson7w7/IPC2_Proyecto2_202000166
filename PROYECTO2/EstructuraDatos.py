@@ -129,7 +129,7 @@ class Cola(object): # clase cola
         actual = self.cabeza
         while(actual.siguiente):
             actual = actual.siguiente
-        print(actual.dato)
+        return actual.dato
 
     def vacio(self):
         if not self.cabeza:
