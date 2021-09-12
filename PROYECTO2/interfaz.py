@@ -72,8 +72,6 @@ class GUI(QMainWindow):
 class CargarWin(QWidget):
     def __init__(self):
         super().__init__()
-        self.cConfig = None
-        self.cSimulacion = None
         uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\cargaWin.ui", self)
 
         # labels
@@ -107,7 +105,7 @@ class CargarWin(QWidget):
 class RepWin(QWidget):
     def __init__(self):
         super().__init__()
-        self.errorDialgo = ErrorDialog()
+        self.errorDialog = ErrorDialog()
         self.htmlWin = HTMLWin()
         uic.loadUi("C:\\Users\\gerso\\Desktop\\PROGRAMACIÓN\\Python\\IPC2\\IPC2_Proyecto2_202000166\\PROYECTO2\\GUI\\repWin.ui", self)
 
@@ -121,14 +119,14 @@ class RepWin(QWidget):
 
     def graphviz(self):
         if maquina.lProductos == None:
-            self.errorDialgo.show()
+            self.errorDialog.show()
         else:
             grafica()
             self.label_2.setHidden(False)
 
     def html(self):
         if maquina.lProductos == None:
-            self.errorDialgo.show()
+            self.errorDialog.show()
         else:
             self.htmlWin.show()
 

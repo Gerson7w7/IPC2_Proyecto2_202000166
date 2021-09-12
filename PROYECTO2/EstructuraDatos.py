@@ -12,6 +12,7 @@ class LinkedList(object):
         self.cola = None
         self.size = 0
 
+
     def append(self, dato): # función para agregar un dato
         nodo = Nodo(dato) 
         if self.cabeza: 
@@ -21,6 +22,7 @@ class LinkedList(object):
             self.cabeza = nodo
             self.cola = nodo
         self.size += 1
+
 
     def iterate(self): # función para iterar la lista
         actual = self.cola
@@ -32,15 +34,6 @@ class LinkedList(object):
     # forma de llamar a la iteración:
     # for l in lista.iterate():
     #   print(l)    
-
-    # función para encontrar un terreno por medio del nombre
-    # devuelve solamente el nombre
-    def findTerreno(self, nombreTerreno): 
-        for terreno in self.iterate():
-            if nombreTerreno == terreno.nombre:
-                return terreno
-        return "El terreno no existe."
-
 
     # función para obtener la cabeza de la cola
     def getCabeza(self):
@@ -55,6 +48,7 @@ class LinkedList(object):
             actual = self.cabeza
             self.cabeza = self.cabeza.siguiente
             return True
+
 
     # función buscar por índice
     def __getitem__(self, indice): 
